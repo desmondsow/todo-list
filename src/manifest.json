@@ -1,0 +1,20 @@
+{
+  "description": "Todo List helps you keep track of your work and commitments with deadlines so that they do not stay out of your focus, accessible right in your browser with just a click.",
+  "manifest_version": 2,
+  "name": "Todo List",
+  "version": "2.0",
+  "homepage_url": "https://github.com/desmondsow/todo-list",
+  "icons": {
+    "32": "assets/icons/icon_32px.png",
+    "64": "assets/icons/icon_64px.png",
+    "128": "assets/icons/icon_128px.png",
+    "256": "assets/icons/icon_256px.png",
+    "512": "assets/icons/icon_512px.png"
+  },
+  "browser_action": {
+    "default_icon": "assets/icons/icon_32px.png",
+    "default_title": "Todo List",
+    "default_popup": "popup/index.html"
+  },
+  "permissions": ["storage"]
+}
