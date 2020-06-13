@@ -1,0 +1,12 @@
+body {
+    margin: 1rem;
+    width: 450px;
+    overflow-x: hidden;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
