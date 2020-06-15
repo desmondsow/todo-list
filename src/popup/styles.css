@@ -1,6 +1,7 @@
 body {
     margin: 1rem;
     width: 450px;
+    min-height: 420px;
     overflow-x: hidden;
 }
 

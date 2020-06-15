@@ -5,16 +5,30 @@
     <title>Title</title>
     <link rel="stylesheet" href="../assets/vendors/bootstrap/css/bootstrap.css">
     <link href="../assets/vendors/fontawesome/css/all.css" rel="stylesheet">
+    <link href="../assets/vendors/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
 </head>
 <body>
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-           <div class="ext-title text-center">
-               <img src="../assets/icons/icon_32px.png" alt="" class="icon-img">
-               <h4>Todo List</h4>
-           </div>
+            <div class="ext-title text-center">
+                <img src="../assets/icons/icon_32px.png" alt="" class="icon-img">
+                <h4>Todo List</h4>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="What will you do today?">
+            </div>
+            <div class="input-group mb-3">
+                <input class="form-control" id="date" name="date" placeholder="Due Date" type="text"/>
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="button">Add</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -22,5 +36,7 @@
 <script src="../assets/vendors/jquery/jquery.min.js"></script>
 <script src="../assets/vendors/popperjs/popper.min.js"></script>
 <script src="../assets/vendors/bootstrap/js/bootstrap.js"></script>
+<script src="../assets/vendors/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+<script src="scripts.js"></script>
 </body>
 </html>
