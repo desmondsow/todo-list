@@ -11,3 +11,50 @@ ul {
     list-style-type: none;
 }
 
+ul li {
+    position: relative;
+    padding: 12px 8px 12px 8px;
+    border-top: 1px solid rgba(0, 0, 0, 0.125);
+
+}
+
+ul li.checked .todo-item-left{
+    text-decoration: line-through;
+}
+
+.ext-title {
+    margin: 10px;
+    padding: 5px 2px;
+}
+
+.todo-item {
+    padding: 1rem;
+    flex-direction: row;
+    align-items: center
+}
+
+.todo-item .todo-item-wrapper {
+    display: flex;
+    flex: 1;
+    position: relative;
+    align-items: center
+}
+
+.todo-item .todo-item-right.todo-item-actions {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .2s
+}
+
+.todo-item .todo-item-left {
+    width: 70%;
+}
+
+.todo-item .todo-item-right {
+    margin-left: auto
+}
+
+.todo-item-due {
+    color: #858a8e;
+    font-size: 12px
+}
