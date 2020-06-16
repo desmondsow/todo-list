@@ -19,21 +19,21 @@ function setup(){
     });
 
     $(document).on('click', '.delete', function(event){
-        let objectabc = JSON.parse(localStorage.getItem('testObject'))
-        let newObject = objectabc.map((item) => item.id === event.currentTarget.id ? ({ ...item, deleted : true }) : item);
-        updateObjectList(newObject)
+        let todoListStorage = JSON.parse(localStorage.getItem('todoList'))
+        let edittedTodoList = todoListStorage.map((item) => item.id === event.currentTarget.id ? ({ ...item, deleted : true }) : item);
+        updateObjectList(edittedTodoList)
         });
 
         $(document).on('click', '.complete', function(event){
-        let objectabc = JSON.parse(localStorage.getItem('testObject'))
-        let newObject = objectabc.map((item) => item.id === event.currentTarget.id ? ({ ...item, completed : true }) : item);
-        updateObjectList(newObject)
+        let todoListStorage = JSON.parse(localStorage.getItem('todoList'))
+        let edittedTodoList = todoListStorage.map((item) => item.id === event.currentTarget.id ? ({ ...item, completed : true }) : item);
+        updateObjectList(edittedTodoList)
         });
 }
 
 function updateObjectList(todoEditted)
 {
-    localStorage.setItem('testObject' , JSON.stringify(todoEditted))
+    localStorage.setItem('todoList' , JSON.stringify(todoEditted))
     refreshBadge()
     refreshTodoList()
     console.log(todoEditted)
@@ -48,19 +48,17 @@ function addToDo() {
         // todo = addToStorage({ id: new Date().valueOf(), todoText:todoText, dueDate:todoDueDate, completed: false, deleted : false });
         document.getElementsByTagName('input')[0].value = "";
         document.getElementsByTagName('input')[1].value = "";
-        var myobject = [{ 'id': new Date().valueOf().toString(), 'todoText':todoText, 'dueDate':todoDueDate, 'completed': false, 'deleted' : false }]
-        if(localStorage.getItem('testObject') !== null)
+        var newTodoItem = [{ 'id': new Date().valueOf().toString(), 'todoText':todoText, 'dueDate':todoDueDate, 'completed': false, 'deleted' : false }]
+        if(localStorage.getItem('todoList') !== null)
         {
-            // console.log('existed')
-            var existedObject = JSON.parse(localStorage.getItem('testObject'))
-            existedObject.push({ 'id': new Date().valueOf().toString(), 'todoText':todoText, 'dueDate':todoDueDate, 'completed': false, 'deleted' : false })
-            localStorage.setItem('testObject' , JSON.stringify(existedObject))
-            console.log(existedObject)
+            var existedTodoList = JSON.parse(localStorage.getItem('todoList'))
+            existedTodoList.push({ 'id': new Date().valueOf().toString(), 'todoText':todoText, 'dueDate':todoDueDate, 'completed': false, 'deleted' : false })
+            localStorage.setItem('todoList' , JSON.stringify(existedTodoList))
+            // console.log(existedObject)
         }
         else 
         {
-            // console.log('add new item')
-            localStorage.setItem('testObject' , JSON.stringify(myobject))
+            localStorage.setItem('todoList' , JSON.stringify(newTodoItem))
         }
         refreshBadge()
         refreshTodoList()
@@ -129,9 +127,9 @@ function insertTodo(todo){
 }
 
 function refreshBadge(){
-      if(localStorage.getItem('testObject') === null)
+      if(localStorage.getItem('todoList') === null)
             return;
-    let todoList = JSON.parse(localStorage.getItem('testObject'))
+    let todoList = JSON.parse(localStorage.getItem('todoList'))
     const count = todoList.filter((item) => item.completed === false && item.deleted === false).length;
     if (count > 0)
             browser.browserAction.setBadgeText({text: count.toString()});
@@ -150,10 +148,10 @@ function refreshBadge(){
 function refreshTodoList() {
         document.getElementsByTagName("ul")[0].innerHTML = "";
 
-        if(localStorage.getItem('testObject') === null)
+        if(localStorage.getItem('todoList') === null)
             return;
     
-        let todoList = JSON.parse(localStorage.getItem('testObject'))
+        let todoList = JSON.parse(localStorage.getItem('todoList'))
         todoList.map((item) => console.log(item))
         todoList.forEach((item) => insertTodo(item));
         
