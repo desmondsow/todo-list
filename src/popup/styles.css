@@ -5,6 +5,12 @@ body {
     overflow-x: hidden;
 }
 
+body::-webkit-scrollbar {
+    width: 12px;
+    background-color: #F5F5F5;
+}
+
+
 ul {
     margin: 0;
     padding: 0;
@@ -54,7 +60,7 @@ ul li.checked .todo-item-left{
     margin-left: auto
 }
 
-.todo-item-due {
+.todo-item-due span{
     color: #858a8e;
-    font-size: 12px
+    font-size: 12px;
 }

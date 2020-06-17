@@ -10,23 +10,25 @@
 </head>
 <body>
 <div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="ext-title text-center">
-                <img src="../assets/icons/icon_32px.png" alt="" class="icon-img">
-                <h4>Todo List</h4>
+    <div class="sticky-top bg-white">
+        <div class="row ">
+            <div class="col-md-12">
+                <div class="ext-title text-center">
+                    <img src="../assets/icons/icon_32px.png" alt="" class="icon-img">
+                    <h4>Todo List</h4>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="What will you do today?">
-            </div>
-            <div class="input-group mb-3">
-                <input class="form-control" id="date" name="date" placeholder="Due Date" type="text"/>
-                <div class="input-group-append">
-                    <button class="btn btn-primary" type="button">Add</button>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="What will you do today?">
+                </div>
+                <div class="input-group mb-3">
+                    <input class="form-control" id="date" name="date" placeholder="Due Date" type="text"/>
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="button" id="add">Add</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -38,9 +40,11 @@
                     <div class="todo-item p-0">
                         <div class="todo-item-wrapper">
                             <div class="todo-item-left">
-                                <div>Call Sam For payments <div class="badge badge-success ml-2">Completed</div>
+                                <div>Call Sam For payments</div>
+                                <div class="todo-item-due">
+                                    <span>Due: 11-12-2020</span>
+                                    <div class="badge badge-success ml-2">Completed</div>
                                 </div>
-                                <div class="todo-item-due">Due: 11-12-2020</div>
                             </div>
                             <div class="todo-item-right">
                                 <button class="border-0 btn-transition btn btn-success"> <i class="fa fa-check"></i></button>
@@ -49,28 +53,15 @@
                         </div>
                     </div>
                 </li>
-                <li>
+                <li class="checked">
                     <div class="todo-item p-0">
                         <div class="todo-item-wrapper">
                             <div class="todo-item-left">
-                                <div class="">Call Sam For pay<div class="badge badge-danger ml-2">To be completed</div>
+                                <div class="">Call Sam For pay</div>
+                                <div class="todo-item-due">
+                                    <span>Due: 11-12-2020</span>
+                                    <div class="badge badge-danger ml-2">To be completed</div>
                                 </div>
-                                <div class="todo-item-due">Due: 11-12-2020</div>
-                            </div>
-                            <div class="todo-item-right">
-                                <button class="border-0 btn-transition btn btn-outline-success"> <i class="fa fa-check"></i></button>
-                                <button class="border-0 btn-transition btn btn-outline-danger"> <i class="fa fa-trash"></i> </button>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="todo-item p-0">
-                        <div class="todo-item-wrapper">
-                            <div class="todo-item-left">
-                                <div class="">Call Sam For payments <div class="badge badge-danger ml-2">To be completed</div>
-                                </div>
-                                <div class="todo-item-due">Due: 11-12-2020</div>
                             </div>
                             <div class="todo-item-right">
                                 <button class="border-0 btn-transition btn btn-outline-success"> <i class="fa fa-check"></i></button>
@@ -88,5 +79,6 @@
 <script src="../assets/vendors/popperjs/popper.min.js"></script>
 <script src="../assets/vendors/bootstrap/js/bootstrap.js"></script>
 <script src="../assets/vendors/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+<script src="../assets/vendors/jquery-nicescroll/jquery.nicescroll.min.js"></script>
 <script src="scripts.js"></script>
 </html>

@@ -11,6 +11,11 @@
     "256": "assets/icons/icon_256px.png",
     "512": "assets/icons/icon_512px.png"
   },
+  "applications": {
+    "gecko": {
+      "id": "{993d7fd9-f6ba-434a-9949-2483488a8db6}"
+    }
+  },
   "browser_action": {
     "default_icon": "assets/icons/icon_32px.png",
     "default_title": "Todo List",
