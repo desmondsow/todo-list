@@ -1,6 +1,16 @@
 const STORAGE_KEY = "todoList"
-
 let storage = browser.storage.sync || browser.storage.local;
+import {x} from './b.js'
+import  moment from 'moment'
+const xyz = () => {
+    console.log(`Hello, ES6's Arrow Function!`);
+    var date1 = new Date();
+    var newDate = moment(date1).format('MM/DD/YYYY')
+    console.log(typeof newDate);
+
+};
+xyz();
+
 
 function setup(){
     $('#date').datepicker({
@@ -21,6 +31,7 @@ function setup(){
     $(document).on('click', '.delete', function(event){
         let todoListStorage = JSON.parse(localStorage.getItem('todoList'))
         let edittedTodoList = todoListStorage.map((item) => item.id === event.currentTarget.id ? ({ ...item, deleted : true }) : item);
+        
         updateObjectList(edittedTodoList)
         });
 
@@ -152,7 +163,7 @@ function refreshTodoList() {
             return;
     
         let todoList = JSON.parse(localStorage.getItem('todoList'))
-        todoList.map((item) => console.log(item))
+        // todoList.map((item) => console.log(typeof item.dueDate))
         todoList.forEach((item) => insertTodo(item));
         
 

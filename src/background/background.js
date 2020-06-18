@@ -8,5 +8,17 @@ function refreshBadge(){
         else
             browser.browserAction.setBadgeText({text: ''});
 }
-
+function pushNotification()
+{
+        browser.notifications.create({
+            "type": "basic",
+            "title" : "Due date of Today's Todo items",
+            "message": "Remainder "
+            ,"iconUrl" : "/assets/icons/icon_64px.png"
+        })
+}
 refreshBadge()
+// setInterval(() => {
+//    pushNotification()
+ 
+// }, 3000);
