@@ -51,6 +51,11 @@ module.exports = {
       chunks: ["popup"],
       inject : false
     }),
+    new HtmlWebpackPlugin({
+      template: "src/background/background.html",
+      filename: "background/background.html",
+      chunks: ["background"],
+    }),
     new CopyWebpackPlugin([
       { from: "./src/manifest.json", to: "./manifest.json" },
       { from: "./src/assets", to: "./assets" },

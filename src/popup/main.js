@@ -1,23 +1,33 @@
 const STORAGE_KEY = "todoList"
 let storage = browser.storage.sync || browser.storage.local;
-import {x} from './b.js'
 import  moment from 'moment'
-function xyz() {
-    console.log(`Hello, ES6's Arrow Function!`);
-    var date1 = new Date();
-    var newDate = moment(date1).format('MM/DD/YYYY')
-    console.log(typeof newDate);
+// import {pushNotification} from '../background/background.js'
 
-};
-// xyz();
+// function xyz() {
+//     const nowDate = moment(moment(Date.now()).format("DD-MM-YYYY"), "DD-MM-YYYY")
+//     if(JSON.parse(localStorage.getItem('todoList')) !== null)
+//     {
+//         var itemsl = JSON.parse(localStorage.getItem('todoList')) 
+//         var reminderList = itemsl.map((item) => moment(item.dueDate, "DD-MM-YYYY").diff(nowDate, 'days') <= 3 ? item.todoText : 0 )
+//         reminderList = reminderList.filter(item => item !== 0)
+//         let reminderNotes = reminderList.join();
+//         return reminderNotes;
+//     }
+//     else
+//     {
+//         return null;
+//     }
+// }
+
+// export {xyz}
 
 
 function setup(){
-    xyz();
     $('#date').datepicker({
+        startDate : new Date(),
         todayBtn: "linked",
         clearBtn: true,
-        format: 'dd/mm/yyyy',
+        format: 'dd-mm-yyyy',
     });
 
     $("body").niceScroll();

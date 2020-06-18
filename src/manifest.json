@@ -22,7 +22,8 @@
     "default_popup": "popup/index.html"
   },
   "background": {
-  "scripts": ["background/background.js"]
+    
+  "page" : "background/background.html"
 },
   "permissions": ["storage", "notifications"]
 }
