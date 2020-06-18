@@ -9,11 +9,12 @@ function setup(){
         format: 'dd/mm/yyyy',
     });
 
+    $("body").niceScroll();
+
     getTodoList().then(({ todoList }) => {
         todoList.forEach((todo) => {
             insertTodo(todo);
         });
-        console.log(todoList);
     });
 
     document.getElementById('add').addEventListener('click', function(event) {
