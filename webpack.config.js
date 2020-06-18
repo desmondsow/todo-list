@@ -49,6 +49,7 @@ module.exports = {
       template: "src/popup/index.html",
       filename: "popup/index.html",
       chunks: ["popup"],
+      inject : false
     }),
     new CopyWebpackPlugin([
       { from: "./src/manifest.json", to: "./manifest.json" },

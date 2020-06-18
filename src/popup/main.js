@@ -2,17 +2,18 @@ const STORAGE_KEY = "todoList"
 let storage = browser.storage.sync || browser.storage.local;
 import {x} from './b.js'
 import  moment from 'moment'
-const xyz = () => {
+function xyz() {
     console.log(`Hello, ES6's Arrow Function!`);
     var date1 = new Date();
     var newDate = moment(date1).format('MM/DD/YYYY')
     console.log(typeof newDate);
 
 };
-xyz();
+// xyz();
 
 
 function setup(){
+    xyz();
     $('#date').datepicker({
         todayBtn: "linked",
         clearBtn: true,
