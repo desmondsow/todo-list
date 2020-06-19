@@ -1,5 +1,7 @@
 # Todo List Extension
 
+Todo List helps you keep track of your work and commitments with deadlines so that they do not stay out of your focus, accessible right in your browser with just a click.
+
 Features:
 
 - Add todos with deadlines
