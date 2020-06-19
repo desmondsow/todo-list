@@ -24,7 +24,6 @@ import  moment from 'moment'
 
 function setup(){
     $('#date').datepicker({
-        startDate : new Date(),
         todayBtn: "linked",
         clearBtn: true,
         format: 'dd-mm-yyyy',
@@ -39,16 +38,20 @@ function setup(){
         addToDo();
     });
 
+    document.getElementById("stat_id").addEventListener('click', function(event)
+    {
+        browser.tabs.create({url : "/stat/stat.html"})
+    })
+
     $(document).on('click', '.delete', function(event){
         let todoListStorage = JSON.parse(localStorage.getItem('todoList'))
-        let edittedTodoList = todoListStorage.map((item) => item.id === event.currentTarget.id ? ({ ...item, deleted : true }) : item);
-        
+        let edittedTodoList = todoListStorage.map((item) => item.id === event.currentTarget.id ? ({ ...item, deleted : true, lastActionDate : moment(Date().now).format('DD-MM-YYYY') }) : item);
         updateObjectList(edittedTodoList)
         });
 
         $(document).on('click', '.complete', function(event){
         let todoListStorage = JSON.parse(localStorage.getItem('todoList'))
-        let edittedTodoList = todoListStorage.map((item) => item.id === event.currentTarget.id ? ({ ...item, completed : true }) : item);
+        let edittedTodoList = todoListStorage.map((item) => item.id === event.currentTarget.id ? ({ ...item, completed : true, lastActionDate : moment(Date().now).format('DD-MM-YYYY') }) : item);
         updateObjectList(edittedTodoList)
         });
 }
@@ -70,11 +73,11 @@ function addToDo() {
         // todo = addToStorage({ id: new Date().valueOf(), todoText:todoText, dueDate:todoDueDate, completed: false, deleted : false });
         document.getElementsByTagName('input')[0].value = "";
         document.getElementsByTagName('input')[1].value = "";
-        var newTodoItem = [{ 'id': new Date().valueOf().toString(), 'todoText':todoText, 'dueDate':todoDueDate, 'completed': false, 'deleted' : false }]
+        var newTodoItem = [{ 'id': new Date().valueOf().toString(), 'todoText':todoText, 'dueDate':todoDueDate, 'completed': false, 'deleted' : false, 'lastActionDate' : todoDueDate}]
         if(localStorage.getItem('todoList') !== null)
         {
             var existedTodoList = JSON.parse(localStorage.getItem('todoList'))
-            existedTodoList.push({ 'id': new Date().valueOf().toString(), 'todoText':todoText, 'dueDate':todoDueDate, 'completed': false, 'deleted' : false })
+            existedTodoList.push({ 'id': new Date().valueOf().toString(), 'todoText':todoText, 'dueDate':todoDueDate, 'completed': false, 'deleted' : false, 'lastActionDate' : todoDueDate })
             localStorage.setItem('todoList' , JSON.stringify(existedTodoList))
             // console.log(existedObject)
         }

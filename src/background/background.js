@@ -1,4 +1,3 @@
-// import {xyz} from '../popup/main.js'
 import {xyz} from './b.js'
 
 function refreshBadge(){

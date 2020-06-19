@@ -9,7 +9,8 @@ module.exports = {
     entry: {
         background : './src/background/background.js',
         popup : './src/popup/main.js',
-        test : './src/popup/test.js'
+        test : './src/popup/test.js',
+        stat: './src/stat/stat.js',
     },
     output: {
     path: path.resolve(__dirname, "dist"),
@@ -50,12 +51,15 @@ module.exports = {
       filename: "popup/index.html",
       chunks: ["popup"],
       inject : false
+    }),new HtmlWebpackPlugin({
+      template: "src/stat/stat.html",
+      filename: "stat/stat.html",
+      chunks: ["stat"], inject:false
     }),
     new HtmlWebpackPlugin({
       template: "src/background/background.html",
       filename: "background/background.html",
-      chunks: ["background"],
-    }),
+      chunks: ["background"], inject: false    }),
     new CopyWebpackPlugin([
       { from: "./src/manifest.json", to: "./manifest.json" },
       { from: "./src/assets", to: "./assets" },
