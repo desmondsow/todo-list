@@ -11,11 +11,8 @@ function setup(){
 
     $("body").niceScroll();
 
-    getTodoList().then(({ todoList }) => {
-        todoList.forEach((todo) => {
-            insertTodo(todo);
-        });
-    });
+    refreshTodoList();
+    refreshBadge();
 
     document.getElementById('add').addEventListener('click', function(event) {
         addToDo();
@@ -28,7 +25,6 @@ function addToDo() {
 
     if(todoText.trim().length > 0){
         todo = addToStorage({ todoText:todoText, dueDate:todoDueDate, completed: false });
-        insertTodo(todo);
         document.getElementsByTagName('input')[0].value = "";
         document.getElementsByTagName('input')[1].value = "";
     }
@@ -65,8 +61,10 @@ function getTodoList() {
 
 function saveTodoList(todoList) {
     obj = { [STORAGE_KEY]: todoList };
-    return storage.set({
-        [STORAGE_KEY]: obj,});
+    storage.set({ [STORAGE_KEY]: obj }).then((res) => {
+        refreshTodoList()
+        refreshBadge();
+    });
 }
 
 function insertTodo(todo){
@@ -89,6 +87,25 @@ function insertTodo(todo){
                     </div>`;
 
     document.getElementsByTagName("ul")[0].appendChild(li);
+}
+
+function refreshBadge(){
+    getTodoList().then(({ todoList }) => {
+        const count = todoList.filter((todo) => todo.completed === false).length;
+        if (count > 0)
+            browser.browserAction.setBadgeText({text: count.toString()});
+        else
+            browser.browserAction.setBadgeText({text: ''});
+    });
+}
+
+function refreshTodoList() {
+    getTodoList().then(({ todoList }) => {
+        document.getElementsByTagName("ul")[0].innerHTML = "";
+        todoList.forEach((todo) => {
+            insertTodo(todo);
+        });
+    });
 }
 
 

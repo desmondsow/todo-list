@@ -1,5 +1,4 @@
 body {
-    margin: 1rem;
     width: 450px;
     min-height: 420px;
     overflow-x: hidden;
@@ -54,6 +53,7 @@ ul li.checked .todo-item-left{
 
 .todo-item .todo-item-left {
     width: 70%;
+    word-wrap: break-word;
 }
 
 .todo-item .todo-item-right {
