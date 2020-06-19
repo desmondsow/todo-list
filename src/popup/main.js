@@ -24,6 +24,7 @@ import  moment from 'moment'
 
 function setup(){
     $('#date').datepicker({
+        startDate : new Date(),
         todayBtn: "linked",
         clearBtn: true,
         format: 'dd-mm-yyyy',
