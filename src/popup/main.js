@@ -69,16 +69,17 @@ function updateObjectList(todoEditted)
 function addToDo() {
     const todoText = document.getElementsByTagName('input')[0].value;
     const todoDueDate = document.getElementsByTagName('input')[1].value;
+    // console.log(moment(Date(Date.now()).toString()).format('DD-MM-YYYY'))
 
     if(todoText.trim().length > 0){
         // todo = addToStorage({ id: new Date().valueOf(), todoText:todoText, dueDate:todoDueDate, completed: false, deleted : false });
         document.getElementsByTagName('input')[0].value = "";
         document.getElementsByTagName('input')[1].value = "";
-        var newTodoItem = [{ 'id': new Date().valueOf().toString(), 'todoText':todoText, 'dueDate':todoDueDate, 'completed': false, 'deleted' : false, 'lastActionDate' : todoDueDate}]
+        var newTodoItem = [{ 'id': new Date().valueOf().toString(), 'todoText':todoText, 'dueDate':todoDueDate, 'completed': false, 'deleted' : false, 'lastActionDate' : moment(Date(Date.now()).toString()).format('DD-MM-YYYY')}]
         if(localStorage.getItem('todoList') !== null)
         {
             var existedTodoList = JSON.parse(localStorage.getItem('todoList'))
-            existedTodoList.push({ 'id': new Date().valueOf().toString(), 'todoText':todoText, 'dueDate':todoDueDate, 'completed': false, 'deleted' : false, 'lastActionDate' : todoDueDate })
+            existedTodoList.push({ 'id': new Date().valueOf().toString(), 'todoText':todoText, 'dueDate':todoDueDate, 'completed': false, 'deleted' : false, 'lastActionDate' : moment(Date(Date.now()).toString()).format('DD-MM-YYYY') })
             localStorage.setItem('todoList' , JSON.stringify(existedTodoList))
             // console.log(existedObject)
         }
