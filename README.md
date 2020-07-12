@@ -5,8 +5,11 @@ Todo List helps you keep track of your work and commitments with deadlines so th
 Features:
 
 - Add todos with deadlines
+- Complete todos
 - Delete todos
 - Badge UI to showing number of todos 
+- Reminder to notify users about deadline todos
+- Chart feature to show the usage of extension of the week
 
 Please file any issues or feature requests at https://github.com/desmondsow/todo-list/issues.
 
