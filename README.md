@@ -5,27 +5,30 @@ Todo List helps you keep track of your work and commitments with deadlines so th
 Features:
 
 - Add todos with deadlines
+- Complete todos
 - Delete todos
 - Badge UI to showing number of todos 
+- Reminder to notify users about deadline todos
+- Chart feature to show the usage of extension of the week
 
 Please file any issues or feature requests at https://github.com/desmondsow/todo-list/issues.
 
 ## Installation & Development
 1. [Install node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
 
-2. Install the required node modules:
+2. Run the following command so that webpack can watch and recompile the /src files live to the /dist folder:
 
 ```sh
-npm install web-ext
+npm run watch
 ```
 
 ### Firefox
 
-To run the extension with live reloading in a clean Firefox instance, run the following command in a separate terminal:
+<!-- To run the extension with live reloading in a clean Firefox instance, run the following command in a separate terminal:
 
 ```sh
 web-ext run
-```
+``` -->
 
 To temporarily load the extension in a normal Firefox instance:
 
