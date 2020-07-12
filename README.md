@@ -21,11 +21,11 @@ npm run watch
 
 ### Firefox
 
-To run the extension with live reloading in a clean Firefox instance, run the following command in a separate terminal:
+<!-- To run the extension with live reloading in a clean Firefox instance, run the following command in a separate terminal:
 
 ```sh
 web-ext run
-```
+``` -->
 
 To temporarily load the extension in a normal Firefox instance:
 
