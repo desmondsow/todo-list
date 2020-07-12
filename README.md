@@ -13,10 +13,10 @@ Please file any issues or feature requests at https://github.com/desmondsow/todo
 ## Installation & Development
 1. [Install node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
 
-2. Install the required node modules:
+2. Run the following command so that webpack can watch and recompile the /src files live to the /dist folder:
 
 ```sh
-npm install web-ext
+npm run watch
 ```
 
 ### Firefox
